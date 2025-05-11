@@ -5,7 +5,7 @@ import VaccinationForm from "./VaccinationForm"; // Assuming you have this compo
 const VaccinationDriveEditModal = ({ VaccinationDrive, show, onClose, onSave }) => {
   return (
     <Model title="Edit Vaccination Drive" show={show} onClose={onClose}>
-      <VaccinationForm initialData={VaccinationDrive} onSubmit={onSave} buttonText="Update Vaccination Drive" />
+      <VaccinationForm initialData={VaccinationDrive} onSubmit={onSave} buttonText="Update" />
     </Model>
   );
 };

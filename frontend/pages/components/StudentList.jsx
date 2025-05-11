@@ -62,7 +62,7 @@ const StudentList = ({ students, setStudents }) => {
           scrollX: true,
           destroy: true, // <-- Important for reinitialization
         });
-      }, 0); // delay to ensure DOM is updated
+      }, 1000); // delay to ensure DOM is updated
 
       return () => {
         if ($.fn.DataTable.isDataTable('#studentTable')) {

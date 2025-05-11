@@ -28,33 +28,17 @@ const Navbar = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/Dashboard">Dashboard</NavLink>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle d-flex align-items-center"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >                  
-                  Manage Student
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-end">
-                  <li>
-                      <NavLink className="dropdown-item" to="/ManageStudents">Manage Student Data
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink className="dropdown-item" to="/ViewStudents">View Student Data
-                      </NavLink>
-                    </li>
-                    
-                  </ul>
+                <li className="nav-item">
+                 <NavLink className="nav-link" to="/ManageStudents"> Manage Student Data</NavLink>
                 </li>
                 <li className="nav-item">
                  <NavLink className="nav-link" to="/VaccinationDrive"> Manage Vaccination Drives</NavLink>
                 </li>
                 <li className="nav-item">
-                 <NavLink className="nav-link" to="/#"> View Reports</NavLink>
+                 <NavLink className="nav-link" to="/StudentVaccination"> Manage Student Vaccination</NavLink>
+                </li>
+                <li className="nav-item">
+                 <NavLink className="nav-link" to="/ViewReports"> View Reports</NavLink>
                 </li>
               </ul>
         

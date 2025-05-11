@@ -9,7 +9,6 @@ const StudentForm = ({ initialData = {}, onSubmit, buttonText = "Save Student"})
     parentName: '',
     contactNumber: '',
     gender: '',
-    vaccinated: false,
     medicalNote: '',
     ...initialData
   });
@@ -56,7 +55,7 @@ const StudentForm = ({ initialData = {}, onSubmit, buttonText = "Save Student"})
 
           <div className='col-3'>
             <label className='form-label'>Contact Number:</label>
-            <input type="tel" name="contactNumber" className='form-control' value={student.contactNumber} onChange={handleChange} required />
+            <input type="tel" name="contactNumber" className='form-control'  pattern="\d{9}" maxLength={9} value={student.contactNumber} onChange={handleChange} required />
           </div>
 
           <div className='col-3 form-check'>

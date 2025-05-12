@@ -48,3 +48,5 @@ This application adheres to modern full-stack development principles and is buil
 
 ```bash
 dotnet run
+
+Hardcoded Id : admin , Password: password

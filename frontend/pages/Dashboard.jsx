@@ -4,6 +4,7 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const chartRef = useRef(null);
+  const chartInstanceRef = useRef(null); // <- Track chart instance
 
   useEffect(() => {
     fetch('http://localhost:5163/api/overview')
@@ -17,7 +18,14 @@ const Dashboard = () => {
   useEffect(() => {
     if (data && chartRef.current) {
       const ctx = chartRef.current.getContext('2d');
-      new window.Chart(ctx, {
+
+      // ✅ Destroy previous chart instance if it exists
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy();
+      }
+
+      // ✅ Create new chart and store reference
+      chartInstanceRef.current = new window.Chart(ctx, {
         type: 'pie',
         data: {
           labels: ['Vaccinated', 'Not Vaccinated'],
@@ -71,7 +79,6 @@ const Dashboard = () => {
         {/* Info Cards on the Right */}
         <div className="col-md-8">
           <div className="row g-4">
-            {/* Total Students */}
             <div className="col-md-6">
               <div className="card shadow-sm border-primary">
                 <div className="card-body">
@@ -80,8 +87,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-
-            {/* Vaccinated Students */}
             <div className="col-md-6">
               <div className="card shadow-sm border-primary">
                 <div className="card-body">
@@ -92,8 +97,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-
-            {/* Upcoming Drives - spans full width */}
             <div className="col-md-12">
               <div className="card shadow-sm border-primary">
                 <div className="card-body">
@@ -115,8 +118,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };

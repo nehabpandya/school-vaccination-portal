@@ -113,7 +113,7 @@ const StudentList = ({ students, setStudents }) => {
                   <td>{student.studentId}</td>
                   <td>{student.name}</td>
                   <td>{student.class}</td>
-                  <td>{student.dateOfBirth}</td>
+                  <td>{student.dob}</td>
                   <td>{student.parentName}</td>
                   <td>{student.medicalNote}</td>
                 </tr>

@@ -62,7 +62,7 @@ const Navbar = () => {
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
-                      <NavLink className="dropdown-item" to="/logout">Logout</NavLink>
+                      <NavLink className="dropdown-item" to="/">Logout</NavLink>
                     </li>
                     
                   </ul>

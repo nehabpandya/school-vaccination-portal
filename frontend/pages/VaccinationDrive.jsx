@@ -28,27 +28,27 @@ const VaccinationDrive = () => {
   }, []);
 
   const handleAddVaccinationDrives = async (vaccinationDriveData) => {
-  try {
-    const response = await fetch('http://localhost:5163/api/VaccinationDrive', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(vaccinationDriveData)
-    });
+ try {
+  const response = await fetch('http://localhost:5163/api/VaccinationDrive', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(vaccinationDriveData)
+  });
 
-    if (!response.ok) {
-      throw new Error('Failed to save Vaccination Drive');
-    }
+  const message = await response.text(); // plain string from server
 
-    await response.json();
-    alert('Vaccination Drive saved successfully!');
-
-    // ✅ INSTEAD OF appending manually, re-fetch from backend
-    fetchVaccinationDrives();
-
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Error saving Vaccination Drive. Please try again.');
+  if (!response.ok) {
+    alert("❌ " + message);  // Show the error from backend
+    return;
   }
+
+  alert("✅ Vaccination Drive saved successfully!");
+  fetchVaccinationDrives();
+
+} catch (error) {
+  alert("❌ " + error.message); // fallback for network issues etc.
+}
+
 };
 
 
